@@ -56,6 +56,17 @@ router.put('/update-review', (req, res) => {
             })
         }
     })
-})
+});
+
+router.delete('/movie/:id', (req, res) => {
+    const movieId = req.params.id;
+    db.query('DELETE FROM movies WHERE id = ?;', movieId, (err, data) => {
+        if (err) {
+            res.status(500).json({ msg: "Error deleting movie" });
+        } else {
+            res.json({ msg: "Successfully deleted the movie!" });
+        }
+    })
+});
 
 module.exports = router;
