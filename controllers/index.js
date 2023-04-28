@@ -5,6 +5,6 @@ const path = require('path');
 
 // Middleware for notes routes
 const moviesRoutes = require('./moviesController');
-router.use(moviesRoutes);
+router.use('/api', moviesRoutes);
 
 module.exports = router;
