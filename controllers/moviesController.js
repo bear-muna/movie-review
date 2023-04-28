@@ -23,7 +23,7 @@ router.get('/movies', (req, res) => {
 });
 
 router.post('/add-movie', (req, res) => {
-    movieName = req.body.movie_name;
+    const movieName = req.body.movie_name;
     db.query('INSERT INTO movies (movie_name) VALUES (?);', [movieName], (err, data) => {
         if (err) {
             res.status(500).json({ msg: "Error posting into db" });
